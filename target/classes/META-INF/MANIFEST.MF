@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: SpringSecurityDemo
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: zahidhussain
+Built-By: zahidindher
 Implementation-Vendor-Id: SpringSecurityDemo
-Build-Jdk: 1.8.0_191
+Build-Jdk: 1.8.0_121
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/SpringSecurityDemo
 Created-By: Maven Integration for Eclipse

@@ -45,28 +45,32 @@ public class StudentsController {
 		return studentsRepository.save(students);
 	}
 	
-//	@PutMapping("/Studentss/{id}")
-//	public ResponseEntity<Students> updateStudents(@PathVariable(value = "id") Long StudentsId,
-//			@Valid @RequestBody Students StudentsDetails) throws ResourceAccessException {
-//		Students Students = studentsRepository.findById(StudentsId)
-//				.orElseThrow(() -> new ResourceAccessException("Students not found for this id :: " + studentsId));
-//
-//		Students.setId(StudentsDetails.getId());
-//		Students.setName(StudentsDetails.getName());
-//		final Students updatedStudents = studentsRepository.save(Students);
-//		return ResponseEntity.ok(updatedStudents);
-//	}
-//	
-//	@DeleteMapping("/Studentss/{id}")
-//	public Map<String, Boolean> deleteStudents(@PathVariable(value = "id") Long StudentsId)
-//			throws ResourceAccessException {
-//		Students Students = studentsRepository.findById(StudentsId)
-//				.orElseThrow(() -> new ResourceAccessException("Students not found for this id :: " + studentsId));
-//
-//		studentsRepository.delete(Students);
-//		Map<String, Boolean> response = new HashMap<>();
-//		response.put("deleted", Boolean.TRUE);
-//		return response;
-//	}
+	@PutMapping("/students/{id}")
+	public ResponseEntity<Students> updateStudents(@PathVariable(value = "id") Long studentsId,
+			@Valid @RequestBody Students studentsDetails) throws ResourceAccessException {
+		Students students = studentsRepository.findById(studentsId)
+				.orElseThrow(() -> new ResourceAccessException("Students not found for this id :: " + studentsId));
+
+		students.setStudentId(studentsDetails.getStudentId());
+		students.setFirstName(studentsDetails.getFirstName());
+		students.setLastName(studentsDetails.getLastName());
+		students.setEmail(studentsDetails.getEmail());
+		students.setMobileNo(studentsDetails.getMobileNo());
+				
+		final Students updatedStudents = studentsRepository.save(students);
+		return ResponseEntity.ok(updatedStudents);
+	}
+	
+	@DeleteMapping("/students/{id}")
+	public Map<String, Boolean> deleteStudents(@PathVariable(value = "id") Long studentsId)
+			throws ResourceAccessException {
+		Students students = studentsRepository.findById(studentsId)
+				.orElseThrow(() -> new ResourceAccessException("Students not found for this id :: " + studentsId));
+
+		studentsRepository.delete(students);
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("deleted", Boolean.TRUE);
+		return response;
+	}
 	
 }

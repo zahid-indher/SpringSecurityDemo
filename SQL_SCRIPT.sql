@@ -22,14 +22,13 @@ INSERT INTO USERS (USER_NAME, PASSWORD, IS_ACTIVE)values ('root','$2a$10$h5CUEDJ
 INSERT INTO USER_ROLES (USER_NAME, ROLE) values ('root','ROLE_ADMIN');
 INSERT INTO USER_ROLES (USER_NAME, ROLE) values ('user','ROLE_USER');
 
-INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(1,'Zahid Hussain'	,'Indher','zahid.indher@gmail.com','923333335366');
-INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(2,'Zafar Ali'	,'Indher','zafar.indher@yahoo.com','923333335366');
-INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(3,'Zohaib Hassan'	,'Mangi',	 'zohaib.mangi@sngpl.com',		  '923333335366');
-INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(4,'Imran Ali'			,'Khokhar','imran.khokhar@royalcyber.com','923333335366');
-INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(5,'Atif Fayaz'			,'Malah',	 'atif.malah@royalcyber.com',		  '923333335366');
-INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(6,'Nizaqat Ali'		,'Shah',	 'nizaqat.shah@wavetech.com',	  '923333335366');
-INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(7,'Amjad Ali'			,'Bhellar',	 'amjad.bhellar@meezan.com',	  '923333335366');
-INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(8,'Murtaza'			,'Korai',	 'murtaza.korai@primatics.com',	  '923333335366');
-INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(9,'Asif Ali'				,'Soomro', 'zahid.indher@caa.com',			  '923333335366');
-INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(10,'Iftikhar Ahmed'	,'Indher',	 'zahid.indher@geditech.com',	  '923333335366');
-
+INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(1,'Zahid Hussain','Indher','zahid.indher@gmail.com','923333335366');
+INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(2,'Zafar Ali','Indher','zafar.indher@yahoo.com','923003180028');
+INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(3,'Zohaib Hassan','Mangi','zohaib.mangi@sngpl.com','923003120064');
+INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(4,'Imran Ali','Khokhar','imran.khokhar@royalcyber.com','923001234567');
+INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(5,'Atif Fayaz','Malah','atif.malah@royalcyber.com','923002323223');
+INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(6,'Nizaqat Ali','Shah','nizaqat.shah@wavetech.com','923347359755');
+INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(7,'Amjad Ali','Bhellar','amjad.bhellar@meezan.com','923013536353');
+INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(8,'Murtaza','Korai','murtaza.korai@primatics.com','923432536546');
+INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(9,'Asif Ali','Soomro','asif.ali@caa.com','923335316597');
+INSERT INTO `spring_security_demo`.`students`(`STUDENT_ID`,`FIRST_NAME`,`LAST_NAME`,`EMAIL`,`MOBILE_NO`) VALUES(10,'Iftikhar Ahmed','Indher','iftikhar.indher@geditech.com','923023686374');

@@ -45,6 +45,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- Following dependency if you want response in XML format uncomment below dependency and send Accept header as application/xml from Post man  
+		<dependency>
+  			<groupId>com.fasterxml.jackson.dataformat</groupId>
+  			<artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
+		-->
 	</dependencies>
 	<build>
 		<plugins>

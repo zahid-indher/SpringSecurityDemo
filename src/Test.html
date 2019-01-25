@@ -1,34 +1,171 @@
+<!-- 
+
+CODE COPIED FROM below link
+https://gist.github.com/EtienneR/2f3ab345df502bd3d13e 
+
+-->
+<!DOCTYPE html>
 <html>
-<head>
-<script>
-function UserAction() {
-	alert("tes");
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-         if (this.readyState == 4 && this.status == 200) {
-             alert(this.responseText);
-         }
-    };
-    xhttp.open("POST", "localhost:9090/students", true);
-    xhttp.setRequestHeader("Content-type", "application/json");
-    
-    xhttp.send("{"studentId": 11,
-    "firstName": "Sajjad Ahmed",
-    "lastName": "Qadri",
-    "email": "sajjad.qadri@sepco.com",
-    "mobileNo": "923002157266"}");
-    
-    
-    
-}
-</script>
-</head>
 <body>
-<button type="submit" onclick="UserAction()">Search</button>
+
+<button type="submit" onclick="getAllStudents()">Test GET</button>
+<br><br>
+<button type="submit" onClick="getSingleStudent('3')">Test GET with Parameter</button>
+<br><br>
+<button type="submit" onClick="saveStudent()">Test POST</button>
+<br><br>
+<button type="submit" onClick="testPUT('20')">Test PUT</button>
+<br><br>
+<button type="submit" onClick="testDELETE('19')">Test DELETE</button>
+<p id="demo"></p>
+<script>
+
+	function getAllStudents() {
+
+		var url = "http://localhost:9090/students";
+		var xhr = new XMLHttpRequest()
+		xhr.open('GET', url, true)
+		xhr.onload = function() {
+			var jsonData = JSON.parse(xhr.responseText);
+
+			for (index in jsonData) {
+				var studentId = JSON.stringify(jsonData[index].studentId);
+				var firstName = JSON.stringify(jsonData[index].firstName);
+				var lastName = JSON.stringify(jsonData[index].lastName);
+				var email = JSON.stringify(jsonData[index].email);
+				var mobileNo = JSON.stringify(jsonData[index].mobileNo);
+
+				var student = studentId + firstName + lastName + email
+						+ mobileNo;
+				document.write(student);
+				document.write('<br>');
+			}
+
+			if (xhr.readyState == 4 && xhr.status == "200") {
+				alert("200 OK.");
+				console.table(jsonData);
+
+			} else {
+				alert("404 NOT OK.");
+				console.error(jsonData);
+			}
+		}
+		xhr.send(null);
+	}
+
+	
+	//Get a user
+	function getSingleStudent(studentId) {
+		var url = "http://localhost:9090/students";
+		var xhr = new XMLHttpRequest()
+		xhr.open('GET', url + '/' + studentId, true)
+		xhr.onload = function() {
+
+			var jsonData = JSON.parse(xhr.responseText);
+			
+			var studentId = JSON.stringify(jsonData.studentId);
+			var firstName = JSON.stringify(jsonData.firstName);
+			var lastName = JSON.stringify(jsonData.lastName);
+			var email = JSON.stringify(jsonData.email);
+			var mobileNo = JSON.stringify(jsonData.mobileNo);
+
+			var student = studentId + firstName + lastName + email + mobileNo;
+			document.write(student);
+			document.write('<br>');
+	
+
+			if (xhr.readyState == 4 && xhr.status == "200") {
+				console.table(jsonData);
+			} else {
+				console.error(jsonData);
+			}
+		}
+		xhr.send(null);
+	}
+	
+	
+	
+	
+	
+	function saveStudent() {
+		var url = "http://localhost:9090/students";
+
+		var data = {};
+		data.firstName = "John";
+		data.lastName = "Snow";
+		data.email = "john.snow@gmail.com";
+		data.mobileNo = "923003180029";
+		var json = JSON.stringify(data);
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+		xhr.onload = function() {
+			var users = JSON.parse(xhr.responseText);
+			if (xhr.readyState == 4 && xhr.status == "201") {
+				console.table(users);
+			} else {
+				console.error(users);
+			}
+		}
+		xhr.send(json);
+
+	}
+	
+	
+	function testPUT(studentId) {
+		var url = "http://localhost:9090/students";
+
+		var data = {};
+		data.firstName = "New";
+		data.lastName = "Record";
+		data.email = "new.record@gmail.com";
+		data.mobileNo = "923113046286";
+		var json = JSON.stringify(data);
+
+		var xhr = new XMLHttpRequest();
+		xhr.open("PUT", url + '/' + studentId, true);
+		xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+		alert('139');
+		xhr.onload = function() {
+			var users = JSON.parse(xhr.responseText);
+			alert('141');
+			if (xhr.readyState == 4 && xhr.status == "200") {
+				alert('127');
+				console.table(users);
+			} else {
+				alert('130');
+				console.error(users);
+			}
+		}
+		xhr.send(json);
+		alert('149');
+	}
+	
+	function testDELETE(studentId) {
+		var url = "http://localhost:9090/students";
+
+		var data = {};
+		data.firstName = "Maria";
+		data.lastName = "Amin";
+		data.email = "maria.amin@gmail.com";
+		data.mobileNo = "923113046286";
+		var json = JSON.stringify(data);
+
+		var xhr = new XMLHttpRequest();
+		xhr.open("DELETE", url + '/' + studentId, true);
+		xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+		xhr.onload = function() {
+			var users = JSON.parse(xhr.responseText);
+			if (xhr.readyState == 4 && xhr.status == "200") {
+				console.table(users);
+			} else {
+				console.error(users);
+			}
+		}
+		xhr.send(json);
+	}
+</script>
+
 </body>
 </html>
-
-
-https://stackoverflow.com/questions/36975619/how-to-call-a-rest-web-service-api-from-javascript
-
 

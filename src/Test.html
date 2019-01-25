@@ -1,0 +1,34 @@
+<html>
+<head>
+<script>
+function UserAction() {
+	alert("tes");
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+             alert(this.responseText);
+         }
+    };
+    xhttp.open("POST", "localhost:9090/students", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    
+    xhttp.send("{"studentId": 11,
+    "firstName": "Sajjad Ahmed",
+    "lastName": "Qadri",
+    "email": "sajjad.qadri@sepco.com",
+    "mobileNo": "923002157266"}");
+    
+    
+    
+}
+</script>
+</head>
+<body>
+<button type="submit" onclick="UserAction()">Search</button>
+</body>
+</html>
+
+
+https://stackoverflow.com/questions/36975619/how-to-call-a-rest-web-service-api-from-javascript
+
+

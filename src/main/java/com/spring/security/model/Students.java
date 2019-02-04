@@ -77,4 +77,9 @@ public class Students {
 	}
 
 	
+	public String toString() {
+		
+		return firstName + " == " + lastName;
+	}
+	
 }

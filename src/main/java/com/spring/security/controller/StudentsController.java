@@ -19,19 +19,34 @@ import org.springframework.web.client.ResourceAccessException;
 
 import com.spring.security.model.Students;
 import com.spring.security.repository.StudentsRepository;
-
+import com.spring.security.service.CityService;
 
 @RestController
 public class StudentsController {
 	@Autowired
 	private StudentsRepository studentsRepository;
+	
+	@Autowired
+	CityService c;
+	
 
+	@GetMapping("/lastName")
+	public void lastName() {
+		List<Students> studentList = c.findByNameEndsWith("Indher");
+		System.out.println(studentList.get(0));
+		studentList.forEach(name -> {
+		    System.out.println(name);
+		});		
+
+		studentList.forEach(System.out::println);
+		
+	}
 	
 	@GetMapping("/students")
 	public List<Students> getAllStudents() {
 		return studentsRepository.findAll();
 	}
-	
+
 	@GetMapping("/students/{id}")
 	public ResponseEntity<Students> getStudentsById(@PathVariable(value = "id") Long studentId)
 			throws ResourceAccessException {
@@ -39,12 +54,12 @@ public class StudentsController {
 				.orElseThrow(() -> new ResourceAccessException("Students Not Found For This ID :: " + studentId));
 		return ResponseEntity.ok().body(student);
 	}
-	
+
 	@PostMapping("/students")
 	public Students createStudents(@Valid @RequestBody Students students) {
 		return studentsRepository.save(students);
 	}
-	
+
 	@PutMapping("/students/{id}")
 	public ResponseEntity<Students> updateStudents(@PathVariable(value = "id") Long studentsId,
 			@Valid @RequestBody Students studentsDetails) throws ResourceAccessException {
@@ -56,11 +71,11 @@ public class StudentsController {
 		students.setLastName(studentsDetails.getLastName());
 		students.setEmail(studentsDetails.getEmail());
 		students.setMobileNo(studentsDetails.getMobileNo());
-				
+
 		final Students updatedStudents = studentsRepository.save(students);
 		return ResponseEntity.ok(updatedStudents);
 	}
-	
+
 	@DeleteMapping("/students/{id}")
 	public Map<String, Boolean> deleteStudents(@PathVariable(value = "id") Long studentsId)
 			throws ResourceAccessException {
@@ -72,5 +87,5 @@ public class StudentsController {
 		response.put("deleted", Boolean.TRUE);
 		return response;
 	}
-	
+
 }
